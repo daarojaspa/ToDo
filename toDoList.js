@@ -47,9 +47,11 @@ function storeInLocalStorage(task){
 }
 function loadLocalStorage(){
   const tasks=JSON.parse(localStorage.getItem("tasks"||"[]"))
+  if (tasks){
   tasks.forEach(element => {
     ul.appendChild(taskCreator(element))
   });
+  }
   if(localStorage.getItem("theme")==="Dark"){
     document.body.classList.toggle("darkTheme");
   }
